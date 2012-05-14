@@ -14,14 +14,14 @@ You may install this library using cabal:
 
 You may run the tests using cabal:
 
-	cabal configure --enable-tests
-	cabal build
-	cabal test
+    cabal configure --enable-tests
+    cabal build
+    cabal test
 
 ## Documentation
 
 You may build the haddock documentation using cabal:
 
-	cabal haddock
+    cabal haddock
 
-[poker hands kata](http://codingdojo.org/cgi-bin/wiki.pl?KataPokerHands)
+[poker hands kata]: http://codingdojo.org/cgi-bin/wiki.pl?KataPokerHands
