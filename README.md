@@ -20,8 +20,11 @@ You may run the tests using cabal:
 
 ## Documentation
 
-You may build the haddock documentation using cabal:
+You may build the haddock documentation yourself using cabal:
 
     cabal haddock
 
+or visit the pre-build [documentation].
+
 [poker hands kata]: http://codingdojo.org/cgi-bin/wiki.pl?KataPokerHands
+[documentation]: http://b52.github.com/kata-poker
