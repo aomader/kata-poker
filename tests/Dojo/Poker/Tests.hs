@@ -9,8 +9,9 @@ import Test.Framework.TH                    (testGroupGenerator)
 import Test.HUnit                           (Assertion, (@?=))
 import Test.QuickCheck                      (Arbitrary, Gen, arbitrary, elements, vector)
 
-import Data.List  (sort)
-import Data.Maybe (fromJust)
+import Control.Monad (liftM)
+import Data.List     (sort)
+import Data.Maybe    (fromJust)
 
 import Dojo.Poker (rank, toHand, Rank(..), Hand(..), Value(..), Card(..), Suite(..))
 
@@ -53,7 +54,7 @@ prop_sorted h = rank h == rank (Hand $ sort $ hCards h)
 example :: String -> String -> Rank -> Assertion
 example w l r = do
     w' > l' @?= True
-    rank w' @?= (Just $ r)
+    rank w' @?= Just r
   where
     w' = fromJust $ toHand w
     l' = fromJust $ toHand l
@@ -66,4 +67,4 @@ instance Arbitrary Card where
     arbitrary = elements deck
 
 instance Arbitrary Hand where
-    arbitrary = (vector 5 :: Gen [Card]) >>= (\cs -> return $ Hand cs)
+    arbitrary = liftM Hand (vector 5 :: Gen [Card])
